@@ -34,11 +34,17 @@ impl Display for Durado {
             } else if nanos < NANOS_PER_MILLI {
                 // µs
                 let micros = nanos / NANOS_PER_MICRO;
-                try!(write!(f, "{}.{:03}µs", micros, (nanos - (micros * NANOS_PER_MICRO))));
+                try!(write!(f,
+                            "{}.{:03}µs",
+                            micros,
+                            (nanos - (micros * NANOS_PER_MICRO))));
             } else {
                 // ms
                 let millis = nanos / NANOS_PER_MILLI;
-                try!(write!(f, "{}.{:06}ms", millis, (nanos - (millis * NANOS_PER_MILLI))));
+                try!(write!(f,
+                            "{}.{:06}ms",
+                            millis,
+                            (nanos - (millis * NANOS_PER_MILLI))));
             }
         } else {
             let weeks = secs / SECS_PER_WEEK;
